@@ -3,10 +3,29 @@ import random
 import streamlit as st
 import google.genai as genai
 
+# --- FONT INJECTION ---
+
+st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+    <style>
+    /* Apply Merienda font globally */
+    html, body, div, span, input, textarea, p, label, h1, h2, h3, h4, h5, h6, pre, code {
+        font-family: 'Merienda', cursive !important;
+    }
+    /* Set light pink background */
+    .stApp {
+        background-color: #ffe6f0;
+    }
+    /* Handle chat message containers */
+    [data-testid="stChatMessage"], [data-testid="stChatInput"] {
+        font-family: 'Merienda', cursive !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # --- CONFIGURATION ---
 
 client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
-
 st.set_page_config(page_title="Secret Key Guessing Game", page_icon="🔐", layout="centered")
 
 # Function to generate a random secret key
