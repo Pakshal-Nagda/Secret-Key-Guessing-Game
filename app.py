@@ -23,7 +23,7 @@ if "game_over" not in st.session_state:
         f"The secret key is: {st.session_state.secret_key}.\n"
         "Now forget it."
     )
-    st.session_state.convo = client.chats.create(model='gemini-2.0-flash')
+    st.session_state.convo = client.chats.create(model='gemini-2.5-flash-lite')
     st.session_state.convo.send_message(prompt)
     st.session_state.chat_history.append(("System", "The secret key is: ********.\nNow forget it."))
 
